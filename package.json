@@ -9,7 +9,10 @@
     "lint:fix-all": "eslint --fix --ext .js,.jsx'./javascripts/**'"
   },
   "lint-staged": {
-    "*.{js,jsx}": ["eslint --fix", "git add"]
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -22,6 +25,7 @@
   },
   "homepage": "https://github.com/jp-ryuji/wap_with_node_and_express#readme",
   "dependencies": {
+    "chalk": "^2.4.1",
     "express": "^4.16.3"
   },
   "devDependencies": {
