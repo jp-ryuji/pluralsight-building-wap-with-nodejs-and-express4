@@ -4,7 +4,12 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "lint-staged",
+    "lint:fix-all": "eslint --fix --ext .js,.jsx'./javascripts/**'"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": ["eslint --fix", "git add"]
   },
   "repository": {
     "type": "git",
