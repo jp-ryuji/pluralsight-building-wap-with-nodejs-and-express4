@@ -26,6 +26,7 @@
   "homepage": "https://github.com/jp-ryuji/wap_with_node_and_express#readme",
   "dependencies": {
     "chalk": "^2.4.1",
+    "debug": "^3.1.0",
     "express": "^4.16.3"
   },
   "devDependencies": {
