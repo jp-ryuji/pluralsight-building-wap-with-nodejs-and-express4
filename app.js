@@ -11,11 +11,13 @@ app.use('/css', express.static(path.join(__dirname, '/node_modules/bootstrap/dis
 app.use('/js', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/js')));
 app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/')));
 app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', './src/views/');
+app.set('view engine', 'pug');
 
 const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'index.html'));
+  res.render('index', { title: 'MyLibrary', list: ['a', 'b', 'c'] });
 });
 
 app.listen(port, () => {
