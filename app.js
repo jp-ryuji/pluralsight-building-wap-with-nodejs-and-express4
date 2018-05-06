@@ -17,7 +17,10 @@ app.set('view engine', 'ejs');
 const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.render('index', { title: 'MyLibrary', list: ['a', 'b', 'c'] });
+  res.render('index', {
+    nav: [{ link: '/books', title: 'Books' }, { link: '/authors', title: 'Authors' }],
+    title: 'Library'
+  });
 });
 
 app.listen(port, () => {
