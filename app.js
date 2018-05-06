@@ -12,7 +12,7 @@ app.use('/js', express.static(path.join(__dirname, '/node_modules/bootstrap/dist
 app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', './src/views/');
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
 
 const port = process.env.PORT || 3000;
 
