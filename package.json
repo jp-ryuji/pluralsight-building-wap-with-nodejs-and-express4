@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "DEBUG=app node app.js",
+    "start": "DEBUG=app nodemon app.js",
     "precommit": "lint-staged",
     "lint:fix-all": "eslint --fix --ext .js,.jsx'./javascripts/**'"
   },
@@ -44,7 +44,12 @@
     "eslint-plugin-react": "^7.7.0",
     "husky": "^0.14.3",
     "lint-staged": "^7.0.5",
-    "nodemon": "^1.17.4",
     "prettier": "^1.12.1"
+  },
+  "nodemonConfig": {
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": 4000
+    }
   }
 }
