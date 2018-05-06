@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "DEBUG=app node app.js",
     "precommit": "lint-staged",
     "lint:fix-all": "eslint --fix --ext .js,.jsx'./javascripts/**'"
   },
