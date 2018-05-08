@@ -1,31 +1,30 @@
 const express = require('express');
+const { MongoClient } = require('mongodb');
+const debug = require('debug')('app:bookRoutes');
 
 const bookRouter = express.Router();
 
-function router(nav) {
-  const books = [
-    {
-      title: 'War and Pease',
-      genre: 'Historical Fiction',
-      author: 'Lev Nikolayevich Tolstoy',
-      read: false
-    },
-    {
-      title: 'Les Miserables',
-      genre: 'Historical Fiction',
-      author: 'Victor Hugo',
-      read: true
-    },
-    {
-      title: 'The Time Machine',
-      genre: 'Science Fiction',
-      author: 'H.G. Wells',
-      read: true
-    }
-  ];
-
+function router(_nav) {
   bookRouter.route('/').get((req, res) => {
-    res.render('books', { title: 'Library', books }, nav);
+    const url = 'mongodb://localhost:27017';
+    const dbName = 'libraryApp';
+
+    (async function mongo() {
+      let client;
+      try {
+        client = await MongoClient.connect(url);
+        const db = client.db(dbName);
+        const books = await db
+          .collection('books')
+          .find()
+          .toArray();
+        res.json(books);
+      } catch (err) {
+        debug(err.stack);
+      }
+
+      client.close();
+    })();
   });
 
   return bookRouter;
