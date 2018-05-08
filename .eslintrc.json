@@ -27,6 +27,9 @@
       "jsxBracketSameLine": true,
       "printWidth": 120
     }],
-    "no-console": "off"
+    "no-console": "off",
+    "no-unused-vars": [ "error", { "argsIgnorePattern": "^_" } ],
+    "func-names": ["error", "as-needed"],
+    "prefer-destructuring": ["error", { "VariableDeclarator": { "object": true, "array": false }}]
   }
 }
